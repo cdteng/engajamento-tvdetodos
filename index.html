@@ -576,6 +576,76 @@ html, body{
 }
 </style>
 
+
+<style id="cronograma-revisado-v22">
+#cronograma .timeline-grid{
+  display:grid;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:24px;
+  margin:36px 0;
+}
+#cronograma .timeline-card{
+  background:#fff;
+  color:#171717;
+  border-radius:26px;
+  padding:30px;
+  border-left:9px solid #ffdd00;
+  box-shadow:0 22px 65px rgba(0,0,0,.22);
+}
+#cronograma .timeline-card .period{
+  display:inline-block;
+  background:#5a007f;
+  color:#ffdd00;
+  border-radius:999px;
+  padding:8px 14px;
+  font-weight:900;
+  font-size:12px;
+  letter-spacing:.05em;
+  text-transform:uppercase;
+  margin-bottom:18px;
+}
+#cronograma .timeline-card h3{
+  color:#5a007f;
+  font-size:28px;
+  margin:0 0 12px;
+  line-height:1.05;
+}
+#cronograma .timeline-card p{
+  color:#272727;
+  line-height:1.55;
+  margin:0;
+  font-weight:700;
+}
+#cronograma .timeline-card ul{
+  margin:18px 0 0;
+  padding-left:18px;
+}
+#cronograma .timeline-card li{
+  color:#242424;
+  margin:8px 0;
+  line-height:1.45;
+  font-weight:800;
+}
+#cronograma .section-subtitle{
+  margin-top:54px;
+  color:#ffdd00;
+  font-size:34px;
+  line-height:1.08;
+}
+#cronograma .table-dark td:nth-child(1){
+  font-weight:900;
+  color:#5a007f;
+}
+#cronograma .badge-total,
+#cronograma .badge-inad,
+#cronograma .badge-copa{
+  white-space:nowrap;
+}
+@media(max-width:1100px){
+  #cronograma .timeline-grid{grid-template-columns:1fr;}
+}
+</style>
+
 </head>
 <body>
 <header class="topbar">
@@ -770,7 +840,7 @@ html, body{
         <thead><tr><th>Período</th><th>Foco</th><th>Mensagem central</th></tr></thead>
         <tbody>
           <tr><td>Dias 7 a 9</td><td>engajamento</td><td>ativação do benefício com WhatsApp, E-mail e Pushes segmentados</td></tr>
-          <tr><td>Dias 11 a 15</td><td>retenção</td><td>urgência progressiva e alerta de encerramento para inadimplentes</td></tr>
+          <tr><td>D+31</td><td>retenção</td><td>urgência progressiva e alerta de encerramento para inadimplentes</td></tr>
           <tr><td>Dias 16 a 18</td><td>reativação</td><td>acesso pausado, retorno fácil e apelos por gênero/interesse</td></tr>
           <tr><td>Dias 20 a 25</td><td>recuperação contínua</td><td>cadência com tom de parceria, família e valor percebido</td></tr>
         </tbody>
@@ -779,30 +849,145 @@ html, body{
   </section>
 
   
+
 <section id="cronograma" class="section-purple">
   <div class="container">
-    <div class="section-label">planejamento crm</div>
-    <h2>Cronograma completo da <span>régua multicanal</span></h2>
-    <p class="lead">A régua foi organizada em uma jornada de 25 dias, com comunicação de descoberta e ativação para a base geral nos primeiros dias e, depois, mensagens específicas para inadimplentes, usando o benefício como alavanca de retenção, regularização e reativação.</p>
-    <div class="exec-note"><strong>Ponto importante:</strong> para filiados adimplentes, a TV de TODOS continua sendo um benefício gratuito. A partir dos dias 11 a 15, a comunicação de urgência e regularização deve ser direcionada aos inadimplentes, pois é nesse público que o produto passa a atuar como alternativa de adimplência e retenção.</div>
-    <div class="table-wrap"><table class="table-dark"><thead><tr><th>Dia</th><th>Canal</th><th>Objetivo</th><th>Público</th><th>Mensagem central</th></tr></thead><tbody>
-      <tr><td>09</td><td>WhatsApp segmentado + Push</td><td>Descoberta do benefício</td><td><span class="badge-audience badge-total">base geral</span></td><td>Mostrar que o cliente já possui TV de TODOS grátis pelo Cartão de TODOS.</td></tr>
-      <tr><td>11</td><td>Push</td><td>Reforço de ativação</td><td><span class="badge-audience badge-total">base geral</span></td><td>Explorar sofá, pipoca, friozinho e entretenimento grátis como gatilhos de uso.</td></tr>
-      <tr><td>12</td><td>WhatsApp + E-mail + Push</td><td>Urgência leve e continuidade</td><td><span class="badge-audience badge-total">base geral</span></td><td>Reforçar gratuidade, benefício já disponível e facilidade de ativação.</td></tr>
-      <tr><td>14</td><td>Push</td><td>Reforço sazonal</td><td><span class="badge-audience badge-total">base geral</span></td><td>Usar frio, cobertor, maratona e TV grátis para estimular acesso.</td></tr>
-      <tr><td>15</td><td>WhatsApp + E-mail + Push</td><td>Última chamada antes da pausa</td><td><span class="badge-audience badge-inad">inadimplentes</span></td><td>Comunicar que, para manter o benefício ativo, é necessário regularizar a mensalidade.</td></tr>
-      <tr><td>16</td><td>WhatsApp + E-mail + Push</td><td>Pausa comunicada</td><td><span class="badge-audience badge-inad">inadimplentes</span></td><td>Informar acesso pausado com tom acolhedor e retorno simples após regularização.</td></tr>
-      <tr><td>18</td><td>WhatsApp segmentado + Push</td><td>Reativação emocional</td><td><span class="badge-audience badge-inad">inadimplentes</span></td><td>Usar séries, futebol, família e rotina como motivadores de retorno.</td></tr>
-      <tr><td>20</td><td>Push</td><td>Recuperação contínua</td><td><span class="badge-audience badge-inad">inadimplentes</span></td><td>Mensagem de proximidade: “sentimos sua falta”, “que tal voltar hoje?”.</td></tr>
-      <tr><td>22</td><td>WhatsApp + E-mail + Push</td><td>Reforço de valor percebido</td><td><span class="badge-audience badge-inad">inadimplentes</span></td><td>Listar o que pode voltar para a tela: canais, filmes, séries, futebol e infantil.</td></tr>
-      <tr><td>24</td><td>Push</td><td>Tom de parceria</td><td><span class="badge-audience badge-inad">inadimplentes</span></td><td>Reforçar que voltar é fácil e que o benefício continua esperando.</td></tr>
-      <tr><td>25</td><td>WhatsApp + E-mail + Push</td><td>Família e valor emocional</td><td><span class="badge-audience badge-inad">inadimplentes</span></td><td>Reposicionar a TV como benefício para a rotina da casa e da família.</td></tr>
-      <tr><td>Jogos do Brasil</td><td>Pushes especiais</td><td>Gatilho ao vivo</td><td><span class="badge-audience badge-copa">base geral</span></td><td>Véspera, manhã, horas antes, 30 minutos antes e intervalo das partidas.</td></tr>
-    </tbody></table></div>
+    <div class="section-label">planejamento crm revisado</div>
+    <h2>Cronograma atualizado da <span>régua multicanal</span></h2>
+    <p class="lead">A nova premissa considera a TV de TODOS como uma frente fixa de Engajamento para toda a base, com sustentação contínua de descoberta, ativação e uso do benefício. Para inadimplentes, a gratuidade foi ampliada para 30 dias; por isso, a régua específica de regularização deve começar apenas em D+31.</p>
+
+    <div class="exec-note">
+      <strong>Ponto importante:</strong> até D30, o objetivo é criar hábito, uso e percepção de valor para a base geral. A partir de D+31, a comunicação muda de papel para inadimplentes: a TV de TODOS passa a funcionar como argumento de adimplência, retenção e reativação.
+    </div>
+
+    <div class="timeline-grid">
+      <div class="timeline-card">
+        <span class="period">D0 a D30</span>
+        <h3>Sustentação para base geral</h3>
+        <p>Frente fixa dentro de Engajamento, com comunicação recorrente para ativar, lembrar e incentivar o uso da TV de TODOS.</p>
+        <ul>
+          <li>Foco em GRÁTIS, descoberta e ativação.</li>
+          <li>Ganchos de Copa, frio, festa junina e férias.</li>
+          <li>Push como frequência e WhatsApp como conversão.</li>
+        </ul>
+      </div>
+
+      <div class="timeline-card">
+        <span class="period">Datas quentes</span>
+        <h3>Reforços sazonais</h3>
+        <p>Comunicações de oportunidade para aumentar interesse em momentos de maior consumo de entretenimento.</p>
+        <ul>
+          <li>Jogos do Brasil e Copa do Mundo.</li>
+          <li>Fim de semana, friozinho e sofá.</li>
+          <li>Férias de julho e programação infantil.</li>
+        </ul>
+      </div>
+
+      <div class="timeline-card">
+        <span class="period">D+31</span>
+        <h3>Régua de inadimplentes</h3>
+        <p>Após o fim dos 30 dias gratuitos, inicia a comunicação para regularização, retenção e recuperação de acesso.</p>
+        <ul>
+          <li>Tom acolhedor e simples.</li>
+          <li>Benefício pausado, mas fácil de retomar.</li>
+          <li>Apelos de família, futebol, séries e rotina.</li>
+        </ul>
+      </div>
+    </div>
+
+    <h3 class="section-subtitle">Cronograma operacional recomendado</h3>
+    <div class="table-wrap">
+      <table class="table-dark">
+        <thead>
+          <tr>
+            <th>Momento</th>
+            <th>Canais</th>
+            <th>Público</th>
+            <th>Objetivo</th>
+            <th>Mensagem central</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>D0</td>
+            <td>WhatsApp + Push</td>
+            <td><span class="badge-audience badge-total">base geral</span></td>
+            <td>Lançamento / descoberta</td>
+            <td>“Você já tem direito. Falta só ativar.” Reforçar que a TV de TODOS é GRÁTIS para quem tem Cartão de TODOS.</td>
+          </tr>
+          <tr>
+            <td>D1 a D7</td>
+            <td>Push recorrente</td>
+            <td><span class="badge-audience badge-total">base geral</span></td>
+            <td>Construção de hábito</td>
+            <td>Usar ganchos de sofá, pipoca, friozinho, jogos, novelas, séries e entretenimento para família.</td>
+          </tr>
+          <tr>
+            <td>Semanal</td>
+            <td>WhatsApp</td>
+            <td><span class="badge-audience badge-total">base geral</span></td>
+            <td>Cadastro / ativação</td>
+            <td>Mensagem mais comercial, direta e popular, com GRÁTIS nos primeiros segundos e chamada para ativar.</td>
+          </tr>
+          <tr>
+            <td>Datas quentes</td>
+            <td>Pushes especiais</td>
+            <td><span class="badge-audience badge-copa">base geral</span></td>
+            <td>Gatilho de oportunidade</td>
+            <td>Véspera e dia de jogo do Brasil, fim de semana, frio intenso, festa junina e férias de julho.</td>
+          </tr>
+          <tr>
+            <td>D15</td>
+            <td>Push + WhatsApp</td>
+            <td><span class="badge-audience badge-total">base geral</span></td>
+            <td>Reforço de meio de jornada</td>
+            <td>Como a gratuidade para inadimplentes foi ampliada, manter abordagem de benefício grátis, uso e ativação, sem pressão de regularização.</td>
+          </tr>
+          <tr>
+            <td>D30</td>
+            <td>Push + E-mail</td>
+            <td><span class="badge-audience badge-inad">inadimplentes</span></td>
+            <td>Preparação para virada</td>
+            <td>Comunicar de forma leve que o período gratuito está chegando ao fim e que o benefício pode continuar com a regularização.</td>
+          </tr>
+          <tr>
+            <td>D+31</td>
+            <td>WhatsApp + E-mail + Push</td>
+            <td><span class="badge-audience badge-inad">inadimplentes</span></td>
+            <td>Início da régua de regularização</td>
+            <td>“Sua TV de TODOS pode continuar com você.” Mostrar retorno simples e manter foco no valor do benefício.</td>
+          </tr>
+          <tr>
+            <td>D+32 a D+35</td>
+            <td>Push + WhatsApp</td>
+            <td><span class="badge-audience badge-inad">inadimplentes</span></td>
+            <td>Retenção e reativação</td>
+            <td>Apelos emocionais por interesse: futebol, séries, família, conteúdo infantil e rotina de casa.</td>
+          </tr>
+          <tr>
+            <td>D+36 em diante</td>
+            <td>Push + WhatsApp + E-mail</td>
+            <td><span class="badge-audience badge-inad">inadimplentes</span></td>
+            <td>Recuperação contínua</td>
+            <td>Manter cadência com tom de parceria: “a melhor parte ficou te esperando”, “voltar é fácil”, “dê o play de novo”.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
     <div class="grid-3">
-      <div class="info-card-purple"><h3>Fase 1</h3><p><strong>Base geral.</strong> Foco em descoberta, curiosidade, GRÁTIS, contexto sazonal e ativação do benefício.</p></div>
-      <div class="info-card-purple"><h3>Fase 2</h3><p><strong>Inadimplentes.</strong> Urgência progressiva e regularização para manter o benefício ativo após o período gratuito.</p></div>
-      <div class="info-card-purple"><h3>Fase 3</h3><p><strong>Reativação.</strong> Acesso pausado, retorno simples e apelos emocionais por família, futebol e entretenimento.</p></div>
+      <div class="info-card-purple">
+        <h3>Fase 1</h3>
+        <p><strong>Base geral.</strong> Sustentação contínua de descoberta, GRÁTIS, ativação e uso recorrente da TV de TODOS.</p>
+      </div>
+      <div class="info-card-purple">
+        <h3>Fase 2</h3>
+        <p><strong>D30 / D+31.</strong> Virada para inadimplentes, com comunicação de fim da gratuidade e manutenção do acesso.</p>
+      </div>
+      <div class="info-card-purple">
+        <h3>Fase 3</h3>
+        <p><strong>Reativação contínua.</strong> Retorno simples, tom acolhedor e apelos emocionais por família, futebol e entretenimento.</p>
+      </div>
     </div>
   </div>
 </section>
@@ -811,8 +996,8 @@ html, body{
   <div class="container">
     <div class="section-label">verba e escala</div>
     <h2>Revisão de investimento para <span>base ampliada</span></h2>
-    <p class="lead">A projeção inicial de custos foi construída considerando apenas a base de inadimplentes. Com a evolução da estratégia para a base total elegível e o bom sinal de engajamento após a nova página de ativação e as chamadas para ativação, é necessário reavaliar a verba para sustentar a régua em escala.</p>
-    <div class="exec-note"><strong>Argumento central:</strong> os 16 disparos inicialmente contemplavam a régua para inadimplentes. No cenário atual, a campanha passa a combinar ativação da base geral, retenção e reativação dos inadimplentes. Por isso, o custo projetado anteriormente não cobre o potencial completo da estratégia.</div>
+    <p class="lead">A projeção inicial de custos foi construída considerando uma régua de 16 disparos voltada apenas para inadimplentes. Com a nova premissa, a TV de TODOS passa a ter duas frentes: sustentação contínua para a base geral e régua específica de inadimplentes apenas em D+31. Por isso, é necessário reavaliar a verba para sustentar a operação em escala.</p>
+    <div class="exec-note"><strong>Argumento central:</strong> os 16 disparos inicialmente contemplavam apenas a régua de inadimplentes. No cenário atual, a campanha passa a combinar uma frente fixa de Engajamento para base geral com uma régua posterior de regularização em D+31. Por isso, o custo projetado anteriormente não cobre o potencial completo da estratégia.</div>
     <div class="table-wrap"><table class="table-dark"><thead><tr><th>Cenário</th><th>Nº de disparos</th><th>Total de envios</th><th>Custo médio por envio</th><th>Investimento necessário</th></tr></thead><tbody>
       <tr><td>Realista</td><td>16</td><td>283.024</td><td>R$ 0,2168</td><td><strong>R$ 61.363,20</strong></td></tr>
       <tr><td>Moderado</td><td>8</td><td>141.512</td><td>R$ 0,2168</td><td><strong>R$ 30.681,60</strong></td></tr>
