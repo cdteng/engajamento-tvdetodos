@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>TV de TODOS | Relatório semanal CRM</title>
+<style>
+  :root{
+    --black:#050505;--ink:#19151f;--purple:#4b007d;--purple2:#7b00d4;--deep:#21002f;
+    --green:#00c783;--green2:#19e36d;--lime:#b8ff00;--yellow:#ffe500;
+    --cream:#f7fff7;--card:#ffffff;--line:#dce7dc;--muted:#68736b;--shadow:0 22px 60px rgba(27,0,49,.16);
+  }
+  *{box-sizing:border-box;scroll-behavior:smooth}
+  body{margin:0;background:#fbf7ff;color:var(--ink);font-family:Inter,Arial,Helvetica,sans-serif}
+  .topbar{position:sticky;top:0;z-index:50;height:78px;background:#000;display:flex;align-items:center;gap:34px;padding:0 34px;box-shadow:0 6px 24px rgba(0,0,0,.25)}
+  .brand{color:#fff;font-weight:950;font-size:28px;letter-spacing:-.6px;white-space:nowrap}.brand span{color:var(--lime)}
+  nav{display:flex;gap:28px;overflow-x:auto;flex:1}nav a{color:#fff;text-decoration:none;text-transform:uppercase;letter-spacing:4px;font-weight:850;font-size:13px;padding:29px 0 23px;border-bottom:5px solid transparent;white-space:nowrap}nav a:hover{color:var(--yellow);border-bottom-color:var(--yellow)}
+  .print{border:1px solid rgba(255,255,255,.35);border-radius:22px;background:#fff;color:#000;padding:13px 22px;font-weight:900;cursor:pointer}.print:hover{background:var(--yellow);color:#160029}
+  .hero{min-height:720px;position:relative;display:flex;align-items:center;padding:0;overflow:hidden;background:radial-gradient(circle at 78% 20%,rgba(255,229,0,.24),transparent 23%),radial-gradient(circle at 88% 88%,rgba(0,199,131,.42),transparent 34%),linear-gradient(135deg,#17001f 0%,#3b005e 36%,#7b00d4 70%,#23002f 100%);color:#fff}.hero:before{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(255,229,0,.12) 0 1px,transparent 1px),linear-gradient(0deg,rgba(255,255,255,.08) 0 1px,transparent 1px);background-size:82px 82px;opacity:.18}.hero:after{content:"TV de TODOS";position:absolute;right:-60px;bottom:40px;font-weight:950;font-size:132px;letter-spacing:-5px;color:rgba(255,255,255,.055);white-space:nowrap}
+  .hero-content{position:relative;z-index:2;width:min(1120px,90vw);margin:0 auto;padding:86px 0}.kicker{color:var(--yellow);font-weight:950;letter-spacing:14px;text-transform:uppercase;font-size:13px;margin-bottom:20px}.hero h1{font-size:76px;line-height:.92;margin:0;font-weight:950;letter-spacing:-2.5px;text-shadow:0 8px 26px rgba(0,0,0,.35)}.hero h1 span{color:var(--yellow)}.hero p{max-width:710px;font-size:20px;line-height:1.48;font-weight:780;color:#fff}.pill{display:inline-flex;background:var(--yellow);color:#190020;border-radius:999px;padding:13px 20px;font-weight:950;margin-top:16px;text-transform:uppercase;font-size:13px}.hero-badges{display:flex;gap:12px;flex-wrap:wrap;margin-top:30px}.hero-badges span{background:rgba(255,255,255,.11);border:1px solid rgba(255,255,255,.18);border-radius:16px;color:#fff;padding:14px 18px;font-weight:850;backdrop-filter:blur(10px)}.hero-badges b{color:var(--yellow)}
+  section{padding:72px 6vw}.wrap{max-width:1180px;margin:auto}.section-head{display:flex;justify-content:space-between;align-items:flex-end;gap:24px;margin-bottom:28px}.tag{display:inline-flex;border-radius:10px;background:#dff5df;color:#24472b;padding:9px 14px;font-size:12px;font-weight:950;text-transform:uppercase;letter-spacing:1.3px}.section-head h2{font-size:44px;line-height:1;margin:0;color:#28372e;font-weight:950;letter-spacing:-1px}.lead{font-size:19px;line-height:1.58;color:#39473e;max-width:980px;margin:0 0 26px}.grid{display:grid;gap:20px}.grid-4{grid-template-columns:repeat(4,1fr)}.grid-3{grid-template-columns:repeat(3,1fr)}.grid-2{grid-template-columns:repeat(2,1fr)}
+  .card{background:#fff;border:1px solid var(--line);border-radius:22px;padding:25px;box-shadow:0 12px 35px rgba(25,50,29,.06);color:#223028}.card h3{margin:0 0 12px;font-size:22px;color:#253229}.card p,.card li{line-height:1.58;color:#3b4c42}.card ul{margin:8px 0 0;padding-left:18px}.metric .label{font-weight:850;color:#627065;font-size:13px;text-transform:uppercase;letter-spacing:.8px}.metric .num{font-size:45px;line-height:1;font-weight:950;color:var(--purple);margin:12px 0}.metric .note{font-size:14px;color:#526156;line-height:1.45}.metric.dark{background:linear-gradient(135deg,#4b007d,#21002f);border:none}.metric.dark .label,.metric.dark .note{color:#f1e8ff}.metric.dark .num{color:var(--yellow)}
+  .tv-band{background:linear-gradient(135deg,#23002f 0%,#5f009b 50%,#180021 100%);color:#fff}.tv-band .section-head h2,.tv-band .lead{color:#fff}.tv-band .tag{background:rgba(255,229,0,.95);color:#23002f}.tv-band .card{background:#fff;color:#223028;border:none}.callout{background:linear-gradient(135deg,#ffe500,#ffcf00);border-radius:26px;padding:32px;box-shadow:var(--shadow);color:#061d14}.callout h3{font-size:30px;margin:0 0 12px;color:#23002f}.callout p{font-size:18px;line-height:1.55;font-weight:720;margin:0;color:#23002f}.quote{background:#fff;border-left:8px solid var(--yellow);border-radius:20px;padding:26px;box-shadow:var(--shadow);font-size:22px;line-height:1.38;font-weight:900;color:#28003f}
+  table{width:100%;border-collapse:separate;border-spacing:0;border:1px solid var(--line);border-radius:18px;overflow:hidden;background:#fff;box-shadow:0 8px 24px rgba(25,50,29,.05)}th{background:#23002f;color:#fff;text-align:left;padding:15px;font-size:14px}td{padding:14px 15px;border-top:1px solid var(--line);font-weight:700;color:#28352d}tr:nth-child(even) td{background:#fbf6ff}.pos{color:#068b44;font-weight:950}.warn{color:#8f4d00;font-weight:950}.small{font-size:13px;color:var(--muted)}
+  .journey{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}.step{background:#fff;border:1px solid #eadbff;border-left:9px solid var(--yellow);border-radius:22px;padding:24px}.step-num{font-size:46px;font-weight:950;color:var(--purple)}.step h3{font-size:24px;margin:4px 0 10px}.copy-card{background:#fff;border-radius:20px;border:1px solid #dde9de;padding:20px;border-left:7px solid var(--lime)}.copy-card b{display:block;color:var(--purple);font-size:18px;margin-bottom:8px}.copy-card p{margin:0;color:#26342d;font-weight:760}.footer{background:#000;color:#fff;text-align:center;padding:34px;font-weight:800}.footer span{color:var(--lime)}
+
+  /* Ajuste de legibilidade dos cards da régua planejada */
+  .tv-band .step{background:#ffffff;color:#111111;border:1px solid rgba(255,229,0,.45);border-left:9px solid var(--yellow);box-shadow:0 18px 45px rgba(0,0,0,.14)}
+  .tv-band .step .step-num{color:var(--purple);font-weight:950}
+  .tv-band .step h3{color:#111111;font-weight:950}
+  .tv-band .step p{color:#1f1f1f;font-weight:700;line-height:1.65}
+
+  @media(max-width:1000px){.grid-4,.grid-3,.grid-2,.journey{grid-template-columns:1fr}.hero{min-height:620px}.hero h1{font-size:44px}.topbar{height:auto;align-items:flex-start;flex-direction:column;padding:20px}nav{width:100%;gap:18px}.print{display:none}.section-head{display:block}.section-head h2{font-size:34px;margin-top:12px}}
+  @media print{.topbar{display:none}.hero{min-height:420px}section{page-break-inside:avoid}.card,table{box-shadow:none}}
+
+.card-fase h3, .card-fase h4, .card-fase strong { color:#1a1a1a !important; }
+.card-fase p, .card-fase li, .card-fase span { color:#1a1a1a !important; }
+
+</style>
+</head>
+<body>
+<header class="topbar">
+  <div class="brand">Cartão de <span>TODOS</span></div>
+  <nav>
+    <a href="#visao">visão geral</a><a href="#base">base</a><a href="#push">push</a><a href="#whatsapp">whatsapp</a><a href="#cadastros">cadastros</a><a href="#proximos">próximos passos</a><a href="#copies">copies</a>
+  </nav>
+  <button class="print" onclick="window.print()">Exportar PDF</button>
+</header>
+
+<main>
+  <section class="hero" id="visao">
+    <div class="hero-content">
+      <div class="kicker">crm & engajamento</div>
+      <h1>TV de TODOS<br><span>relatório semanal</span></h1>
+      <p>Status da operação de CRM em Vale do Aço, evolução da estratégia, resultados por canal, aprendizados de cadastro e próximos passos da régua.</p>
+      <div class="pill">09/06 a 16/06</div>
+      <div class="hero-badges">
+        <span><b>GRÁTIS</b> para clientes</span>
+        <span><b>+200</b> canais ao vivo</span>
+        <span>foco em <b>ativação</b></span>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="section-head"><span class="tag">resumo executivo</span><h2>O que mudou na semana</h2></div>
+      <div class="grid grid-4">
+        <div class="card metric"><div class="label">cadastros reportados</div><div class="num">118</div><div class="note">melhor resultado diário observado em 15/06</div></div>
+        <div class="card metric"><div class="label">crescimento informado</div><div class="num">9x</div><div class="note">evolução no cadastro diário após nova LP + CTA</div></div>
+        <div class="card metric"><div class="label">visualizações de push</div><div class="num">29,7k</div><div class="note">acumuladas entre 12/06 e 15/06</div></div>
+        <div class="card metric dark"><div class="label">virada criativa</div><div class="num">GRÁTIS</div><div class="note">tração veio de descoberta e gratuidade, não de explicação do produto</div></div>
+      </div>
+      <br>
+      <div class="callout">
+        <h3>Principal leitura executiva</h3>
+        <p>Mesmo após quase 30 mil visualizações acumuladas nos pushes entre 12/06 e 15/06, o time não observou crescimento relevante de cadastros durante o final de semana. Isso sugere que o desafio da campanha não estava apenas em gerar exposição, mas em comunicar claramente a gratuidade do benefício e facilitar a jornada de ativação. Os primeiros resultados após a alteração da LP e dos CTAs reforçam essa hipótese.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="base" class="tv-band">
+    <div class="wrap">
+      <div class="section-head"><span class="tag">contexto de base</span><h2>Audiência e estratégia por fase</h2></div>
+      <p class="lead">Até 12/06, as ativações de CRM ocorreram apenas sobre a base de inadimplentes disponibilizada para operação. Depois do alinhamento, a fase 1 passou a falar com toda a base disponível de Vale do Aço para gerar conhecimento, ativação e hábito. A fase 2 será direcionada aos inadimplentes, usando a TV de TODOS como alternativa de adimplência, retenção e regularização. Para filiados em dia, o benefício continua gratuito.</p>
+      <div class="grid grid-3">
+        <div class="card metric"><div class="label">base inicial inadimplente</div><div class="num">~2,7k</div><div class="note">audiência restrita e mais difícil de engajar</div></div>
+        <div class="card metric"><div class="label">base completa push</div><div class="num">9.108</div><div class="note">usuários qualificados em Vale do Aço</div></div>
+        <div class="card metric"><div class="label">primeiro envio ampliado</div><div class="num">8.377</div><div class="note">usuários impactados no disparo para base completa</div></div>
+      </div>
+      <br>
+      <table>
+        <thead><tr><th>Canal</th><th>Critério para contato</th><th>Impacto na campanha</th></tr></thead>
+        <tbody>
+          <tr><td>Push</td><td>usuário precisa ter acessado o app</td><td>limita o alcance real frente à base total da franquia</td></tr>
+          <tr><td>WhatsApp</td><td>telefone válido e apto para envio</td><td>permite escala, mas com custo maior</td></tr>
+          <tr><td>E-mail</td><td>e-mail válido e entregável</td><td>canal complementar de sustentação</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section id="push">
+    <div class="wrap">
+      <div class="section-head"><span class="tag">push notification</span><h2>Resultados de Push</h2></div>
+      <div class="grid grid-3">
+        <div class="card metric"><div class="label">fase inadimplentes</div><div class="num">119</div><div class="note">retornos ao app nos dias 09 e 10/06</div></div>
+        <div class="card metric"><div class="label">visualizações fase 2</div><div class="num">29.705</div><div class="note">visualizações acumuladas com base completa</div></div>
+        <div class="card metric"><div class="label">cliques fase 2</div><div class="num">204</div><div class="note">CTR médio aproximado de 0,69%</div></div>
+      </div>
+      <br>
+      <h3>Fase inicial — inadimplentes</h3>
+      <table>
+        <thead><tr><th>Data</th><th>Qualificados</th><th>Enviados</th><th>Impressões</th><th>Cliques</th><th>Retornos / conversão</th></tr></thead>
+        <tbody>
+          <tr><td>09/06</td><td>661</td><td>598</td><td>238</td><td>-</td><td>86 | 14,38%</td></tr>
+          <tr><td>10/06</td><td>592</td><td>526</td><td>213</td><td>2</td><td>33 | 6,27%</td></tr>
+          <tr><td><b>Consolidado</b></td><td>-</td><td><b>1.124</b></td><td><b>451</b></td><td><b>2</b></td><td><b>119 | 10,3%</b></td></tr>
+        </tbody>
+      </table>
+      <br>
+      <h3>Fase ampliada — base completa Vale do Aço</h3>
+      <table>
+        <thead><tr><th>Data</th><th>Cliques</th><th>Impressões</th><th>Leitura</th></tr></thead>
+        <tbody>
+          <tr><td>12/06</td><td>15</td><td>3.685</td><td>primeiro disparo ampliado</td></tr>
+          <tr><td>13/06</td><td>16</td><td>3.588</td><td>sustentação de fim de semana</td></tr>
+          <tr><td>13/06</td><td>25</td><td>3.773</td><td>reforço de frequência</td></tr>
+          <tr><td>13/06</td><td>23</td><td>3.791</td><td>reforço de frequência</td></tr>
+          <tr><td>15/06</td><td>14</td><td>3.720</td><td>copy comercial</td></tr>
+          <tr><td>15/06</td><td>25</td><td>3.739</td><td>copy comercial</td></tr>
+          <tr><td>15/06</td><td>44</td><td>3.716</td><td>melhor clique do recorte</td></tr>
+          <tr><td>15/06</td><td>42</td><td>3.693</td><td>melhor clique do recorte</td></tr>
+          <tr><td><b>Consolidado</b></td><td><b>204</b></td><td><b>29.705</b></td><td><b>CTR médio ~0,69%</b></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section id="whatsapp" class="tv-band">
+    <div class="wrap">
+      <div class="section-head"><span class="tag">whatsapp</span><h2>Comparativo Touch 1 x Touch 2</h2></div>
+      <p class="lead">O Touch 2 foi o primeiro disparo realizado para a base completa, já com nova LP, CTA de ativação e narrativa focada em descoberta de benefício gratuito.</p>
+      <table>
+        <thead><tr><th>Métrica</th><th>Touch 1 — inadimplentes</th><th>Touch 2 — base completa</th><th>Evolução</th></tr></thead>
+        <tbody>
+          <tr><td>Interações</td><td>3.509</td><td>17.683</td><td class="pos">+404%</td></tr>
+          <tr><td>Leituras</td><td>1.259</td><td>6.865</td><td class="pos">+445%</td></tr>
+          <tr><td>Investimento</td><td>R$ 806</td><td>R$ 3.834</td><td class="warn">+376%</td></tr>
+        </tbody>
+      </table>
+      <br>
+      <div class="grid grid-2">
+        <div class="card"><h3>Detalhe Touch 2</h3><p><b>Enviadas:</b> 1.588<br><b>Entregues:</b> 3.528<br><b>Lidas:</b> 6.865<br><b>Não entregues:</b> 5.224<br><b>Descadastros:</b> 66<br><b>Custo total:</b> R$ 3.833,92</p></div>
+        <div class="card"><h3>Leitura executiva</h3><p>Além do ganho de escala, o Touch 2 coincidiu com o melhor resultado de cadastros observado até o momento. A campanha começou a ganhar tração quando passou a vender descoberta e gratuidade, não quando explicava o produto.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="cadastros">
+    <div class="wrap">
+      <div class="section-head"><span class="tag">cadastros e lp</span><h2>Virada da jornada</h2></div>
+      <div class="grid grid-2">
+        <div class="card"><h3>Antes</h3><ul><li>Comunicação mais explicativa.</li><li>Foco em informar o produto.</li><li>CTA menos direto.</li><li>Jornada menos clara para cadastro.</li></ul></div>
+        <div class="card"><h3>Depois</h3><ul><li>Gratuidade em destaque.</li><li>Benefício apresentado como descoberta.</li><li>CTA alterado de “assinar” para “ativar”.</li><li>Direcionamento para LP oficial.</li></ul></div>
+      </div>
+      <br>
+      <div class="quote">“você já tem direito. falta só ativar.”<br><span class="small">essa linha resume a hipótese vencedora: reduzir explicação, aumentar clareza de benefício e remover percepção de custo.</span></div>
+    </div>
+  </section>
+
+  <section id="proximos" class="tv-band">
+    <div class="wrap">
+      <div class="section-head"><span class="tag">próximos passos</span><h2>Régua planejada</h2></div>
+      <div class="journey">
+        <div class="step"><div class="step-num">01</div><h3>Fase 1 — base completa</h3><p>Conhecimento, ativação e hábito. Público: toda a base disponível de Vale do Aço. Tom: descoberta, GRÁTIS, curiosidade e contexto sazonal.</p></div>
+        <div class="step"><div class="step-num">02</div><h3>Fase 2 — inadimplentes</h3><p>Retenção e regularização. Público: inadimplentes. A TV de TODOS entra como alternativa de adimplência e manutenção do benefício.</p></div>
+        <div class="step"><div class="step-num">03</div><h3>Fase 3 — recuperação</h3><p>Recuperação contínua com apelos emocionais por interesse: futebol, séries, família, inverno e férias.</p></div>
+      </div>
+      <br>
+      <table>
+        <thead><tr><th>Período</th><th>Foco</th><th>Mensagem central</th></tr></thead>
+        <tbody>
+          <tr><td>Dias 7 a 9</td><td>engajamento</td><td>ativação do benefício com WhatsApp, E-mail e Pushes segmentados</td></tr>
+          <tr><td>Dias 11 a 15</td><td>retenção</td><td>urgência progressiva e alerta de encerramento para inadimplentes</td></tr>
+          <tr><td>Dias 16 a 18</td><td>reativação</td><td>acesso pausado, retorno fácil e apelos por gênero/interesse</td></tr>
+          <tr><td>Dias 20 a 25</td><td>recuperação contínua</td><td>cadência com tom de parceria, família e valor percebido</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section id="copies">
+    <div class="wrap">
+      <div class="section-head"><span class="tag">copies</span><h2>Novas linhas criativas</h2></div>
+      <div class="grid grid-2">
+        <div class="copy-card"><b>Copa do Mundo</b><p>não deu brasil… mas você ganhou um presentão: TV de TODOS grátis pra ativar agora.</p></div>
+        <div class="copy-card"><b>Copa do Mundo</b><p>o jogo acabou. a diversão não. ative sua TV de TODOS grátis e dê o play.</p></div>
+        <div class="copy-card"><b>Inverno</b><p>frio lá fora. série debaixo da coberta aqui dentro. sua TV grátis está esperando.</p></div>
+        <div class="copy-card"><b>Férias de Julho</b><p>tem criança em casa nas férias? mais de 200 canais ajudam bastante. ative grátis.</p></div>
+        <div class="copy-card"><b>Festa Junina</b><p>o arraiá acaba. a diversão continua. ative sua TV de TODOS grátis.</p></div>
+        <div class="copy-card"><b>Descoberta</b><p>tem gente pagando streaming sem saber que já tem TV grátis no Cartão de TODOS.</p></div>
+        <div class="copy-card"><b>Reativação inadimplentes</b><p>hoje tem jogo e sua TV de TODOS continua pausada. regularize e volte a dar o play.</p></div>
+        <div class="copy-card"><b>Família</b><p>a diversão da criançada continua aqui. fique em dia e mantenha sua TV ligada.</p></div>
+      </div>
+    </div>
+  </section>
+</main>
+<footer class="footer">TV de <span>TODOS</span> | Relatório CRM e Engajamento</footer>
+</body>
+</html>
